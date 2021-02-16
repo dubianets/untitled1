@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Columns from "./Columns";
+import Create from "./Create";
 
 function App() {
     const initColumns = [
@@ -23,6 +24,22 @@ function App() {
             })
     }
 
+    const createCards = (newTitle, newStatus, newDescription, newPriority) => {
+        const newCard = {
+            title: newTitle,
+            status: newStatus,
+            description: newDescription,
+            priority: newPriority
+        }
+        return axios.post('http://localhost:5000/cards', newCard)
+            .then(res => {
+                getCards();
+            })
+            .catch( err => {
+                console.log(err)
+            })
+    }
+
     useEffect(() => {
         getCards()
     }, [])
@@ -30,7 +47,7 @@ function App() {
     return (
         <div className='container'>
 
-            <button onClick={() => getCards()}>Get cards</button>
+            <Create createCards={createCards}/>
 
             <div className='row'>
                 {columns.map(el =>
