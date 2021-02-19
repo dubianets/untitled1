@@ -25,12 +25,12 @@ function App() {
     }
 
     const createCards = (newTitle, newStatus, newDescription, newPriority) => {
-        const newCard = {
-            title: newTitle,
-            status: newStatus,
-            description: newDescription,
-            priority: newPriority
-        }
+        // const newCard = {
+        //     title: newTitle,
+        //     status: newStatus,
+        //     description: newDescription,
+        //     priority: newPriority
+        // }
         return axios.post('http://localhost:5000/cards', newCard)
             .then(res => {
                 getCards();
