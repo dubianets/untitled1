@@ -6,7 +6,7 @@ import Create from "./Create";
 function App() {
     const initColumns = [
         {id: Math.random(), title: 'ToDo', status: 'todo'},
-        {id: Math.random(), title: 'In Progress', status: 'progress'},
+       // {id: Math.random(), title: 'In Progress', status: 'progress'},
         {id: Math.random(), title: 'Review', status: 'review'},
         {id: Math.random(), title: 'Done', status: 'done'}
     ]
